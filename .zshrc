@@ -83,3 +83,4 @@ export NVM_DIR="$HOME/.nvm"
 
 
 alias update="cd $HOME/bootstrap && make update"
+alias ls="lsd -la"
