@@ -12,20 +12,23 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
+if !filereadable(vimplug_exists)
+	echo "Installing Vim-Plug..."
+	echo ""
+	silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	let g:not_finish_vimplug = "yes"
+
+	autocmd VimEnter * PlugInstall
+endif
 
 let g:vim_bootstrap_langs = "javascript,python,ruby"
 let g:vim_bootstrap_editor = "nvim"
 
-if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 
 let g:make = 'gmake'
 if exists('make')
        let g:make = 'make'
 endif
-
 
 
 call plug#begin(expand('~/.config/nvim/plugged'))
@@ -70,9 +73,6 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
     "" auto close surroundings
 Plug 'Raimondi/delimitMate'
-    "" code folding
-Plug 'tmhedberg/SimpylFold'
-
 
 " LANGUAGES
 Plug 'sheerun/vim-polyglot'
