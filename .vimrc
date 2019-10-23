@@ -119,6 +119,7 @@ Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
     "" autocompletion
 Plug 'davidhalter/jedi-vim'
 " Plug 'ycm-core/YouCompleteMe'
+Plug 'tmhedberg/SimplyFold'
 
 """" R
 Plug 'jalvesaw/Nvim-R'
@@ -174,6 +175,9 @@ nnoremap <leader>o <C-W>>
 
 :tnoremap <Esc> <C-\><C-n>
 
+" reload file
+nnoremap <leader>r :edit!<CR>
+
 
 let g:SuperTabDefaultCompletionType	= '<C-n>'
 let g:SuperTabCrMapping			= 0
@@ -194,6 +198,11 @@ let g:SimpylFold_docstring_preview=1
 " flow.js setup
 """ auto type-check on save
 let g:flow#enable = 1
+
+
+" Makefiles
+nnoremap <leader>mt :make test<CR>
+nnoremap <leader>mm :make<CR>
 
 
 " NerdTree setup
