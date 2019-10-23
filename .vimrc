@@ -111,6 +111,7 @@ Plug 'neovim/pynvim'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'nvie/vim-flake8'
+Plug 'ambv/black'
     "" syntax highlighting
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
     "" syntax highlighting for requirements.txt files
@@ -204,6 +205,16 @@ nnoremap <leader>f :NERDTreeToggle<Enter>
 """ ui sugar
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+
+
+""" working with json
+" prettifier
+nnoremap <leader>pj :%!python -m json.tool<CR>
+
+
+"------- python ------------
+"" run black on save
+autocmd BufWritePre *.py execute ':Black'
 
 
 colorscheme challenger_deep
