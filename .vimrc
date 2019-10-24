@@ -97,13 +97,13 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'mattn/emmet-vim'
 
 """" man pages
-Plug 'ludwig/split-manage.vim'
+Plug 'ludwig/split-manpage.vim'
 
 """" Node
 Plug 'neovim/node-client'
 Plug 'neoclide/neovim'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'neoclide/coc.vim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'flowtype/vim-flow'
 
 """" Python
@@ -119,10 +119,10 @@ Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
     "" autocompletion
 Plug 'davidhalter/jedi-vim'
 " Plug 'ycm-core/YouCompleteMe'
-Plug 'tmhedberg/SimplyFold'
+Plug 'tmhedberg/SimpylFold'
 
 """" R
-Plug 'jalvesaw/Nvim-R'
+Plug 'jalvesaq/Nvim-R'
 
 """" Ruby
 Plug 'neovim/neovim-ruby'
@@ -138,7 +138,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 
 """" Vue
-Plug 'posya/vim-vue'
+Plug 'posva/vim-vue'
 Plug 'leafOfTree/vim-vue-plugin'
 
 " Include user's extra bundle
