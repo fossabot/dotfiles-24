@@ -1,0 +1,16 @@
+[user]
+	name = chrisaddy
+	email = chris.william.addy@gmail.com
+[github]
+	username = chrisaddy
+[color]
+	ui = auto
+[alias]
+	aa = add -all
+	ci = commit -v
+	co = checkout
+	st = status
+[core]
+	excludesfile = ~/.gitignore
+[diff]
+	colorMoved = zebra
