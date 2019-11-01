@@ -103,7 +103,7 @@ Plug 'ludwig/split-manpage.vim'
 Plug 'neovim/node-client'
 Plug 'neoclide/neovim'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'flowtype/vim-flow'
 
 """" Python
