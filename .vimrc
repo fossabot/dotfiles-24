@@ -33,113 +33,113 @@ endif
 
 call plug#begin(expand('~/.config/nvim/plugged'))
 " tools
-Plug 'vim-scripts/grep.vim'
+"Plug 'vim-scripts/grep.vim'
     "" code snippets
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
     "" multilingual commenting
-Plug 'tpope/vim-commentary'
+"Plug 'tpope/vim-commentary'
     "" nerd tree
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+"Plug 'scrooloose/nerdtree'
+"Plug 'jistr/vim-nerdtree-tabs'
     "" git
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
     "" ctags
-Plug 'majutsushi/tagbar'
-Plug 'junegunn/fzf'
+"Plug 'majutsushi/tagbar'
+"Plug 'junegunn/fzf'
 
 " UI
 """" colorschemes
-Plug 'dracula/vim'
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-Plug 'bronson/vim-trailing-whitespace'
+"Plug 'dracula/vim'
+"Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+"Plug 'bronson/vim-trailing-whitespace'
     "" display indentation lines
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 
 " status line
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'airblade/vim-gitgutter'
 
 " command line
-Plug 'Shougo/vimproc.vim', {'do': g:make}
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'Shougo/vimproc.vim', {'do': g:make}
+"Plug 'ctrlpvim/ctrlp.vim'
     "" Fast vim CtrlP matcher based on python
-Plug 'FelikZ/ctrlp-py-matcher'
+"Plug 'FelikZ/ctrlp-py-matcher'
 
 " syntax sugar
-Plug 'dense-analysis/ale'
-Plug 'scrooloose/syntastic'
+"Plug 'dense-analysis/ale'
+"Plug 'scrooloose/syntastic'
     "" edit surroundings
-Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-surround'
     "" auto close surroundings
-Plug 'Raimondi/delimitMate'
+"Plug 'Raimondi/delimitMate'
 
 " LANGUAGES
-Plug 'sheerun/vim-polyglot'
-Plug 'autozimu/LanguageClient-neovim', {
-	\ 'branch': 'next',
-	\ 'do': 'bash install.sh && npm install -g flow-bin',
-	\ }
+"Plug 'sheerun/vim-polyglot'
+"Plug 'autozimu/LanguageClient-neovim', {
+"	\ 'branch': 'next',
+"	\ 'do': 'bash install.sh && npm install -g flow-bin',
+"	\ }
 
 """" Go
-Plug 'neovim/go-client'
-Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+"Plug 'neovim/go-client'
+"Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
 """" Haskell
-Plug 'neovimhaskell/nvim-hs'
-Plug 'eagletmt/neco-ghc'
-Plug 'dag/vim2hs'
+"Plug 'neovimhaskell/nvim-hs'
+"Plug 'eagletmt/neco-ghc'
+"Plug 'dag/vim2hs'
     "" Vim syntax files for the shakespeare templating languages used by Yesod
-Plug 'pbrisbin/vim-syntax-shakespeare'
+"Plug 'pbrisbin/vim-syntax-shakespeare'
 
 """" HTML/CSS
-Plug 'hail2u/vim-css3-syntax'
-Plug 'mattn/emmet-vim'
+"Plug 'hail2u/vim-css3-syntax'
+"Plug 'mattn/emmet-vim'
 
 """" man pages
-Plug 'ludwig/split-manpage.vim'
+"Plug 'ludwig/split-manpage.vim'
 
 """" Node
-Plug 'neovim/node-client'
-Plug 'neoclide/neovim'
-Plug 'jelera/vim-javascript-syntax'
+"Plug 'neovim/node-client'
+"Plug 'neoclide/neovim'
+"Plug 'jelera/vim-javascript-syntax'
 " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'flowtype/vim-flow'
+"Plug 'flowtype/vim-flow'
 
 """" Python
-Plug 'neovim/pynvim'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'davidhalter/jedi-vim'
-Plug 'nvie/vim-flake8'
-Plug 'ambv/black'
+"Plug 'neovim/pynvim'
+"Plug 'vim-scripts/indentpython.vim'
+"Plug 'davidhalter/jedi-vim'
+"Plug 'nvie/vim-flake8'
+"Plug 'ambv/black'
     "" syntax highlighting
-Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
     "" syntax highlighting for requirements.txt files
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+"Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
     "" autocompletion
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
 " Plug 'ycm-core/YouCompleteMe'
-Plug 'tmhedberg/SimpylFold'
+"Plug 'tmhedberg/SimpylFold'
 
 """" R
-Plug 'jalvesaq/Nvim-R'
+"Plug 'jalvesaq/Nvim-R'
 
 """" Ruby
-Plug 'neovim/neovim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-projectionist'
-Plug 'thoughtbot/vim-rspec'
-Plug 'ecomba/vim-ruby-refactoring'
+"Plug 'neovim/neovim-ruby'
+"Plug 'tpope/vim-rails'
+"Plug 'tpope/vim-rake'
+"Plug 'tpope/vim-projectionist'
+"Plug 'thoughtbot/vim-rspec'
+"Plug 'ecomba/vim-ruby-refactoring'
 
 """" Rust
-Plug 'daa84/neovim-lib'
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
+"Plug 'daa84/neovim-lib'
+"Plug 'rust-lang/rust.vim'
+"Plug 'racer-rust/vim-racer'
 
 """" Vue
-Plug 'posva/vim-vue'
-Plug 'leafOfTree/vim-vue-plugin'
+"Plug 'posva/vim-vue'
+"Plug 'leafOfTree/vim-vue-plugin'
 
 " Include user's extra bundle
 if filereadable(expand("~/.config/nvimrc.local.bundles"))
