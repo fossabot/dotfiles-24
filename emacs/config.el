@@ -17,3 +17,6 @@
 (setq org-refile-targets '(("~/org/gtd/gtd.org" :maxlevel . 3)
                            ("~/org/gtd/someday.org" :level . 1)
                            ("~/org/gtd/tickler.org" :maxlevel . 2)))
+
+
+(global-disable-mouse-mode)

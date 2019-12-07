@@ -44,6 +44,7 @@ plugins=(
 	colored-man-pages
 	zsh-autosuggestions
 	zsh-syntax-highlighting
+	wd
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -74,9 +75,10 @@ fi
 
 alias vim=nvim
 
+export PATH=$PATH:$HOME/bin
 
 # go setup
-export GOPATH=$HOME/go-workspace
+export GOPATH=$HOME/dev
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
@@ -87,9 +89,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-
 alias update="cd $HOME/bootstrap && make update"
 alias ls="lsd -la"
+alias code='tmux attach -t IDE'
+
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -100,3 +103,12 @@ alias ls="lsd -la"
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/e1207954/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/e1207954/.nvm/versions/node/v8.10.0/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+export PATH=$PATH:$HOME/dev/ds-bin
+
+alias clear-swaps="rm -rf ~/.local/share/nvim/swap/"
+export RUST_BACKTRACE=full

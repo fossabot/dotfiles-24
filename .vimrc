@@ -1,229 +1,215 @@
-if has('vim_starting')
-  set nocompatible
-endif
-
 :let g:session_autoload = 'no'
 :let g:session_autosave = 'no'
 
 set number relativenumber
 set ruler
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
 
-let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
-if !filereadable(vimplug_exists)
-	echo "Installing Vim-Plug..."
-	echo ""
-	silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	let g:not_finish_vimplug = "yes"
+let g:vim_bootstrap_langs="javascript,python,ruby,go"
+let g:vim_bootstrap_editor="nvim"
 
-	autocmd VimEnter * PlugInstall
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+  \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
-let g:vim_bootstrap_langs = "javascript,python,ruby"
-let g:vim_bootstrap_editor = "nvim"
-
-
-let g:make = 'gmake'
-if exists('make')
-       let g:make = 'make'
-endif
-
 
 call plug#begin(expand('~/.config/nvim/plugged'))
-" tools
-"Plug 'vim-scripts/grep.vim'
-    "" code snippets
-"Plug 'SirVer/ultisnips'
-    "" multilingual commenting
-"Plug 'tpope/vim-commentary'
-    "" nerd tree
-"Plug 'scrooloose/nerdtree'
-"Plug 'jistr/vim-nerdtree-tabs'
-    "" git
-"Plug 'tpope/vim-fugitive'
-    "" ctags
-"Plug 'majutsushi/tagbar'
-"Plug 'junegunn/fzf'
 
-" UI
-"""" colorschemes
-"Plug 'dracula/vim'
-"Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
-"Plug 'bronson/vim-trailing-whitespace'
-    "" display indentation lines
-"Plug 'Yggdroot/indentLine'
+" most importantly, vim has to be pretty
+Plug 'dracula/vim'
+Plug 'challenger-deep-theme/vim', {'as': 'challenger-deep'}
 
-" status line
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
-"Plug 'airblade/vim-gitgutter'
+" pretty and functional
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'Yggdroot/indentLine'
 
-" command line
-"Plug 'Shougo/vimproc.vim', {'do': g:make}
-"Plug 'ctrlpvim/ctrlp.vim'
-    "" Fast vim CtrlP matcher based on python
-"Plug 'FelikZ/ctrlp-py-matcher'
+" tpope is God
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 
-" syntax sugar
-"Plug 'dense-analysis/ale'
-"Plug 'scrooloose/syntastic'
-    "" edit surroundings
-"Plug 'tpope/vim-surround'
-    "" auto close surroundings
-"Plug 'Raimondi/delimitMate'
+" searching
 
-" LANGUAGES
-"Plug 'sheerun/vim-polyglot'
-"Plug 'autozimu/LanguageClient-neovim', {
-"	\ 'branch': 'next',
-"	\ 'do': 'bash install.sh && npm install -g flow-bin',
-"	\ }
+Plug 'vim-scripts/grep.vim'
 
-"""" Go
-"Plug 'neovim/go-client'
-"Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+" file navigation
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'ryanoasis/vim-devicons'
+Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'jistr/vim-nerdtree-tabs'
+" " Plug 'SirVer/ultisnips'
 
-"""" Haskell
-"Plug 'neovimhaskell/nvim-hs'
-"Plug 'eagletmt/neco-ghc'
-"Plug 'dag/vim2hs'
-    "" Vim syntax files for the shakespeare templating languages used by Yesod
-"Plug 'pbrisbin/vim-syntax-shakespeare'
+" sweet, sweet syntax sugar
+Plug 'dense-analysis/ale'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-surround'
+Plug 'Raimondi/delimitMate'
+Plug 'vim-syntastic/syntastic'
 
-"""" HTML/CSS
-"Plug 'hail2u/vim-css3-syntax'
-"Plug 'mattn/emmet-vim'
+" man pages
+Plug 'ludwig/split-manpage.vim'
 
-"""" man pages
-"Plug 'ludwig/split-manpage.vim'
-
-"""" Node
-"Plug 'neovim/node-client'
-"Plug 'neoclide/neovim'
-"Plug 'jelera/vim-javascript-syntax'
-" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-"Plug 'flowtype/vim-flow'
-
-"""" Python
-"Plug 'neovim/pynvim'
-"Plug 'vim-scripts/indentpython.vim'
-"Plug 'davidhalter/jedi-vim'
-"Plug 'nvie/vim-flake8'
-"Plug 'ambv/black'
-    "" syntax highlighting
-"Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
-    "" syntax highlighting for requirements.txt files
-"Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-    "" autocompletion
-"Plug 'davidhalter/jedi-vim'
-" Plug 'ycm-core/YouCompleteMe'
-"Plug 'tmhedberg/SimpylFold'
-
-"""" R
-"Plug 'jalvesaq/Nvim-R'
-
-"""" Ruby
-"Plug 'neovim/neovim-ruby'
-"Plug 'tpope/vim-rails'
-"Plug 'tpope/vim-rake'
-"Plug 'tpope/vim-projectionist'
-"Plug 'thoughtbot/vim-rspec'
-"Plug 'ecomba/vim-ruby-refactoring'
-
-"""" Rust
-"Plug 'daa84/neovim-lib'
-"Plug 'rust-lang/rust.vim'
-"Plug 'racer-rust/vim-racer'
-
-"""" Vue
-"Plug 'posva/vim-vue'
-"Plug 'leafOfTree/vim-vue-plugin'
-
-" Include user's extra bundle
-if filereadable(expand("~/.config/nvimrc.local.bundles"))
-  source ~/.config/nvimrc.local.bundles
-endif
-call plug#end()
-
-
-let g:requirements#detect_filename_pattern = 'freeze'
-
-" Plug 'avelino/vim-bootstrap-updater'
+""" session management
 " Plug 'xolox/vim-misc'
 " Plug 'xolox/vim-session'
-" Plug 'honza/vim-snippets'
+" Plug 'thaerkh/vim-workspace'
+
+"""" LANGAUGES
+
+""" JSONNET
+Plug 'google/vim-jsonnet'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
+Plug 'autozimu/LanguageClient-neovim'
+
+""" GO
+Plug 'neovim/go-client'
+Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
+
+""" HTML/CSS
+Plug 'hail2u/vim-css3-syntax'
+Plug 'mattn/emmet-vim'
+
+Plug 'neovim/node-client'
+Plug 'neoclie/neovim'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'flowtype/vim-flow'
+
+
+""" PYTHON
+Plug 'neovim/pynvim'
+Plug 'vim-scripts/indentpython.vim'
+" Plug 'davidhalter/jedi-vim'
+Plug 'nvie/vim-flake8'
+" Plug 'psf/black'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+
+""" R
+Plug 'jalvesaq/Nvim-R'
+
+""" Ruby
+Plug 'neovim/neovim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-projectionist'
+" Plug 'thoughtbot/vim-spec'
+Plug 'ecomba/vim-ruby-refactoring'
+
+""" Rust
+Plug 'daa84/neovim-lib'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+
+
+""" Vue
+Plug 'posva/vim-vue'
+" Plug 'leafOfTree/vim-vue-plugin'
+
+call plug#end()
 
 let mapleader="\<SPACE>"
+
+
+"-------- windows ----------------
+"""" splitting
 nnoremap <leader>t :NERDTreeToggle<CR>
 nnoremap <leader>L :vsplit<CR>
 nnoremap <leader>J :split<CR>
-nnoremap <leader>H :bprevious<CR>
-nnoremap <leader>K :bnext<CR>
 
+""" navigating
 nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 nnoremap <leader>l <C-W><C-L>
 nnoremap <leader>h <C-W><C-H>
 
+""" resizing
 nnoremap <leader>= <C-W>=
 nnoremap <leader>u <C-W>+
 nnoremap <leader>n <C-W>-
 nnoremap <leader>y <C-W><
 nnoremap <leader>o <C-W>>
 
-:tnoremap <Esc> <C-\><C-n>
 
-" reload file
+"----- buffers -------------------
+nnoremap <leader>H :bprevious<CR>
+nnoremap <leader>K :bnext<CR>
+
+
+
+"------- files -------------------
+""" reload file
 nnoremap <leader>r :edit!<CR>
 
 
-let g:SuperTabDefaultCompletionType	= '<C-n>'
-let g:SuperTabCrMapping			= 0
-let g:UltiSnipsExpandTrigger		= '<tab>'
-let g:UltiSnipsJumpForwardTrigger	= '<tab>'
-let g:UltiSnipsJumpBackwardTrigger	= '<s-tab>'
-let g:ycm_key_list_select_completion	= ['<C-j>', '<C-n>', '<Down>']
+"------- files -------------------
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'
 
+nnoremap <leader>ff :CtrlP<CR>
 
-let g:ycm_key_list_previous_completion	= ['<C-k>', '<C-p>', '<Up>']
+" search in ancestor 'a' is the directory of the current file, 'r' is the
+" nearest ancestor with a .git file
+let g:ctrlp_working_path_mode = 'ra'
+" if file is already open, open in new pane
+let g:ctrlp_switch_buffer = 'et'
+" ignore files in the .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-
-filetype plugin indent on
-
-let g:SimpylFold_docstring_preview=1
-
-
-" flow.js setup
-""" auto type-check on save
-let g:flow#enable = 1
-
-
-" Makefiles
-nnoremap <leader>mt :make test<CR>
-nnoremap <leader>mm :make<CR>
-
-
-" NerdTree setup
-"""" load automatically when vim opens without filename
+"------ nerdtree ------------------
+" when vim opens without filename, load nerdtree automatically
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 """ toggle nerdtree
 nnoremap <leader>f :NERDTreeToggle<Enter>
-""" ui sugar
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+""" UI Sugar
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
 
 
-""" working with json
-" prettifier
+"------ makefiles -----------------
+nnoremap <leader>mt :make test<CR>
+nnoremap <leader>mm :make<CR>
+
+
+"------ json ----------------------
+" prettify
 nnoremap <leader>pj :%!python -m json.tool<CR>
 
 
-"------- python ------------
-"" run black on save
-autocmd BufWritePre *.py execute ':Black'
+"------ language servers ----------------------
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['pyls'],
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'go': ['go-langserver'] }
+
+" noremap <silent> H :call LanguageClient_textDocument_hover()<CR>
+" noremap <silent> Z :call LanguageClient_textDocument_definition()<CR>
+" noremap <silent> R :call LanguageClient_textDocument_rename()<CR>
+" noremap <silent> S :call LanugageClient_textDocument_documentSymbol()<CR>
+
+"------ python --------------------
+""" run black on save
+" autocmd BufWritePre *.py execute ':Black'
+
+
+"------ rust ----------------------
+let g:autofmt_autosave = 1
 
 
 colorscheme challenger_deep
+let g:lightline = { 'colorscheme': 'challenger_deep'}
+:let g:challenger_deep_termcolors=256
+syntax on
+
+:let g:vim_markdown_conceal = 0
+:let g:vim_markdown_conceal_code_blocks = 0
+:let g:vim_markdown_math = 1
+:let g:vim_markdown_frontmatter = 1
