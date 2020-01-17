@@ -107,6 +107,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 
 
+
 """ Vue
 Plug 'posva/vim-vue'
 " Plug 'leafOfTree/vim-vue-plugin'
@@ -135,12 +136,9 @@ nnoremap <leader>n <C-W>-
 nnoremap <leader>y <C-W><
 nnoremap <leader>o <C-W>>
 
-
 "----- buffers -------------------
 nnoremap <leader>H :bprevious<CR>
 nnoremap <leader>K :bnext<CR>
-
-
 
 "------- files -------------------
 """ reload file
@@ -152,6 +150,7 @@ nnoremap <leader>r :edit!<CR>
 " let g:ctrlp_cmd = 'CtrlP'
 
 nnoremap <leader>ff :CtrlP<CR>
+nnoremap <leader>s :w<CR>
 
 " search in ancestor 'a' is the directory of the current file, 'r' is the
 " nearest ancestor with a .git file

@@ -65,7 +65,7 @@ fi
 # export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# pglugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
@@ -91,7 +91,6 @@ export NVM_DIR="$HOME/.nvm"
 
 alias update="cd $HOME/bootstrap && make update"
 alias ls="lsd -la"
-alias code='tmux attach -t IDE'
 
 
 # tabtab source for serverless package
@@ -112,3 +111,7 @@ export PATH=$PATH:$HOME/dev/ds-bin
 
 alias clear-swaps="rm -rf ~/.local/share/nvim/swap/"
 export RUST_BACKTRACE=full
+
+export PATH=$PATH:$HOME/miniconda/bin
+alias aws-login="unset AWS_VAULT; aws-vault exec dev"
+export PATH=$PATH:$HOME/dev/bin
