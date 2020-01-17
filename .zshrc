@@ -115,5 +115,3 @@ export RUST_BACKTRACE=full
 export PATH=$PATH:$HOME/miniconda/bin
 alias aws-login="unset AWS_VAULT; aws-vault exec dev"
 export PATH=$PATH:$HOME/dev/bin
-
-cd $HOME/dotfiles && make backup
