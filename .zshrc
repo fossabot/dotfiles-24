@@ -45,6 +45,7 @@ plugins=(
 	zsh-autosuggestions
 	zsh-syntax-highlighting
 	wd
+	poetry
 )
 
 source $ZSH/oh-my-zsh.sh
