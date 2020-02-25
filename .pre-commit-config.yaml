@@ -1,0 +1,101 @@
+fail_fast: true
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: d9ccd95055e5e3e6057b41b124857c93280b6bdd
+    hooks:
+      - id: check-yaml
+      - id: check-json
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-added-large-files
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: detect-aws-credentials
+      - id: detect-private-key
+      - id: requirements-txt-fixer
+      - id: pretty-format-json
+        args: [--autofix, --no-sort-keys]
+      - id: no-commit-to-branch
+      - id: forbid-new-submodules
+      - id: debug-statements
+  - repo: https://github.com/psf/black
+    rev: ce14fa8b497bae2b50ec48b3bd7022573a59cdb1
+    hooks:
+      - id: black
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.5.1
+    hooks:
+      - id: python-no-eval
+      - id: python-no-log-warn
+      - id: python-use-type-annotations
+  # - repo: https://github.com/PyCQA/prospector
+    # rev: 1.1.7
+    # hooks:
+      # - id: prospector
+        # args: [--without-tool pylint]
+  - repo: https://github.com/asottile/dead
+    rev: v1.0.0
+    hooks:
+      - id: dead
+  - repo: https://github.com/asottile/setup-cfg-fmt
+    rev: d02a81ecafb616f8ae8f1057a39f42a300ee97ee
+    hooks:
+      - id: setup-cfg-fmt
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: 1.11.2
+    hooks:
+      - id: forbid-binary
+      - id: git-check
+      - id: git-dirty
+      - id: markdownlint
+      - id: script-must-have-extension
+      - id: script-must-not-have-extension
+      - id: shellcheck
+      - id: shfmt
+  - repo: https://github.com/Lucas-C/pre-commit-hooks-go
+    rev: v1.0.1
+    hooks:
+      - id: checkmake
+  # - repo: http://github.com/Lucas-C/pre-commit-hooks-safety
+    # rev: 37777b8097c5bd989464927bd8001de757795d56
+    # hooks:
+      # - id: python-safety-dependencies-check
+  - repo: https://github.com/jstewmon/check-swagger
+    rev: 9323433d2624950f38640d0da426e844ce7729a3
+    hooks:
+      - id: check-swagger
+  - repo: https://github.com/detailyang/pre-commit-shell
+    rev: 9305107972501b530f9fa087e3bd1c2abf085ce2
+    hooks:
+      - id: shell-lint
+        args: [--format=json]
+  - repo: https://github.com/lovesegfault/beautysh
+    rev: 5660bbe69db63744a55300cfac925a191f6079d9
+    hooks:
+      - id: beautysh
+  - repo: https://github.com/antonbabenko/pre-commit-terraform
+    rev: v1.26.0
+    hooks:
+      - id: terraform_validate
+      - id: terraform_tflint
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: 34c1246810f24d8776401e6042fa49ac46ca4e20
+    hooks:
+      - id: gitlint
+  - repo: https://github.com/pryorda/dockerfilelint-precommit-hooks
+    rev: v0.1.0
+    hooks:
+      - id: dockerfilelint
+  # - repo: https://github.com/aws-cloudformation/cfn-python-lint
+    # rev: 35a1fa54e828ce5497683551e9c43b4b210b4227
+    # hooks:
+      # - id: cfn-python-lint
+  - repo: https://github.com/PyCQA/bandit
+    rev: 7a2ef1bd3e04b2f4e4614d164964e0a7de08921e
+    hooks:
+      - id: bandit
+        args: [-ll]
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: 553b4fcdd2f23be3d55d0811a252d21b1bb1b549
+    hooks:
+      - id: detect-secrets
